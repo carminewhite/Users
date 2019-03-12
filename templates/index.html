@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <a href="" class="home">Home</a>
+        <h1>All Users</h1>
+        <table class="blueTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for one_user in all_users %}
+                <tr>
+                    <td>{{ one_user["id"] }}</td>
+                    <td>{{ one_user["first_name"] }} {{ one_user["last_name"] }} </td>
+                    <td>{{ one_user["email"] }}</td>
+                    <td>{{ one_user["created_at"] }}</td>
+                    <td><a href="/users/{{ one_user['id'] }}/display">Show</a> | <a href="/users/{{ one_user['id'] }}/edit">Edit</a> | <a href="/users/{{ one_user['id'] }}/destroy">Delete</a></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+
+        <a class="navlink" href="users/new">Add a New User</a>
+
+
+
+
+
+    </div>
+    
+</body>
+</html>
